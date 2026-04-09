@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Score Guardians · Liga MX</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/4.10.0/tf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -24,6 +25,7 @@
   <div class="hero-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
   <div class="hero-content">
     <div class="hero-badge">Liga MX · Predictor Inteligente · UTC 2026</div>
+    <div id="nn-badge" style="display:inline-block;margin-top:8px;padding:4px 12px;border-radius:20px;font-size:0.75em;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);transition:all 0.5s">⏳ Cargando modelo...</div>
     <h1><span class="solid">SCORE</span><br><span class="grad">GUARDIANS</span></h1>
     <p class="hero-sub">Sistema de predicción basado en Distribución de Poisson e Inteligencia Artificial — Apertura/Clausura 2021–2026</p>
     <div class="hero-stats-row">
@@ -39,6 +41,7 @@
 <section class="section" id="sec-predictor">
   <div class="container">
     <div class="sec-header">
+      <span class="sec-tag">Módulo 01</span>
       <h2 class="sec-title">Elige tu <span class="grad">partido</span></h2>
     </div>
     <div class="glass-card">
@@ -103,7 +106,7 @@
 <section class="section" id="sec-proximos" style="background:rgba(255,255,255,0.3);">
   <div class="container">
     <div class="sec-header">
-      <span class="sec-tag">Jornada 12 — CL 2025</span>
+      <span class="sec-tag">Módulo 02 · Jornada 12 — CL 2025</span>
       <h2 class="sec-title">Próximos <span class="grad">Partidos</span></h2>
     </div>
     <div class="matches-glass" id="matchesGrid"></div>
@@ -114,6 +117,7 @@
 <section class="section" id="sec-graficas">
   <div class="container">
     <div class="sec-header">
+      <span class="sec-tag">Módulo 03</span>
       <h2 class="sec-title">Análisis de <span class="grad">Rendimiento</span></h2>
     </div>
     <div class="charts-glass">
@@ -130,6 +134,7 @@
 <section class="section" id="sec-ranking" style="background:rgba(255,255,255,0.3);">
   <div class="container" style="max-width:900px;">
     <div class="sec-header">
+      <span class="sec-tag">Módulo 04</span>
       <h2 class="sec-title">Ranking por <span class="grad">IR</span></h2>
     </div>
     <div class="glass-card" style="padding:0;overflow:hidden;">

@@ -34,6 +34,71 @@ let FAC_LOCAL  = 1.15;
 let MAX_GOLES  = 7;
 
 // ── Carga del JSON ──────────────────────────────────────────────
+// ──────────────────────────────────────────────────────────────
+// MODELO RED NEURONAL — TensorFlow.js
+// Pesos: PESO_NN=0.60 · PESO_POISSON=0.40 (igual que notebook)
+// ──────────────────────────────────────────────────────────────
+let NN_MODEL    = null;   // modelo tfjs cargado
+let NN_SCALER   = null;   // {mean, scale, features}
+let NN_LISTO    = false;  // flag: modelo disponible
+const PESO_NN      = 0.60;
+const PESO_POISSON = 0.40;
+
+async function cargarModelo() {
+  try {
+    // Cargar scaler params
+    const sr = await fetch('./tfjs_model/scaler_params.json');
+    NN_SCALER = await sr.json();
+
+    // Cargar modelo TF.js
+    NN_MODEL = await tf.loadLayersModel('./tfjs_model/model.json');
+    NN_LISTO = true;
+    console.log('✅ Red neuronal cargada');
+
+    // Actualizar badge en UI
+    const badge = document.getElementById('nn-badge');
+    if (badge) {
+      badge.textContent = '🧠 NN Activa';
+      badge.style.background = 'rgba(132,204,22,0.2)';
+      badge.style.color = '#4d7c0f';
+    }
+  } catch(e) {
+    console.warn('⚠️ Modelo NN no disponible, usando solo Poisson:', e.message);
+    NN_LISTO = false;
+  }
+}
+
+// ── Normalizar features con el scaler exportado ──────────────
+function scalerTransform(featArr) {
+  return featArr.map((v, i) => (v - NN_SCALER.mean[i]) / NN_SCALER.scale[i]);
+}
+
+// ── Predicción con red neuronal ───────────────────────────────
+async function predecirNN(local, visita) {
+  const sl = STATS[local], sv = STATS[visita];
+  if (!sl || !sv) return null;
+
+  const rawFeat = [
+    sl.ppg,  sv.ppg,
+    sl.gfpj, sv.gfpj,
+    sl.gcpj, sv.gcpj,
+    sl.pos_media || 9, sv.pos_media || 9,   // fallback si no hay pos
+    sl.ppg  - sv.ppg,
+    (sv.pos_media || 9) - (sl.pos_media || 9),
+    sl.gfpj - sv.gfpj,
+    sl.gcpj - sv.gcpj,
+  ];
+
+  const scaled   = scalerTransform(rawFeat);
+  const tensor   = tf.tensor2d([scaled]);
+  const pred     = NN_MODEL.predict(tensor);
+  const probs    = await pred.data();
+  tensor.dispose();
+  pred.dispose();
+
+  return { pL: probs[0], pE: probs[1], pV: probs[2] };
+}
+
 async function cargarDatos() {
   try {
     const res  = await fetch('./stats_equipos.json');
@@ -71,7 +136,9 @@ async function cargarDatos() {
     // Iniciar la app
     initCharts();
     buildRanking();
-    buildMatchCards();
+    // Cargar modelo NN en paralelo (no bloquea la UI)
+    cargarModelo().then(() => buildMatchCards());
+    buildMatchCards(); // primera pasada con solo Poisson
 
   } catch(err) {
     console.error('Error cargando stats_equipos.json:', err);
@@ -100,7 +167,7 @@ function matrizPoisson(ll,lv){
 }
 
 // ── Predicción principal ────────────────────────────────────────
-function predecir(local,visita){
+function predecirPoisson(local,visita){
   const sl=STATS[local],sv=STATS[visita];
   if(!sl||!sv)return null;
   const ll=sl.fa*sv.fd*PROM_GOLES*FAC_LOCAL,lv=sv.fa*sl.fd*PROM_GOLES,M=matrizPoisson(ll,lv);
@@ -112,6 +179,46 @@ function predecir(local,visita){
   const probs=[pL,pE,pV].sort((a,b)=>b-a),confianza=(probs[0]-probs[1])/probs[0]*100;
   return{ll:+ll.toFixed(3),lv:+lv.toFixed(3),pL:+(pL*100).toFixed(1),pE:+(pE*100).toFixed(1),pV:+(pV*100).toFixed(1),marcador:`${gL} - ${gV}`,confianza:+confianza.toFixed(1),M,sl,sv};
 }
+// ── Predicción ensemble: NN + Poisson ────────────────────────
+async function predecir(local, visita) {
+  const sl = STATS[local], sv = STATS[visita];
+  if (!sl || !sv) return null;
+
+  // Poisson base (síncrono)
+  const rP = predecirPoisson(local, visita);
+  if (!rP) return null;
+
+  let pL, pE, pV;
+
+  if (NN_LISTO) {
+    // Ensemble: 60% NN + 40% Poisson
+    const rNN = await predecirNN(local, visita);
+    pL = PESO_NN * rNN.pL + PESO_POISSON * (rP.pL / 100);
+    pE = PESO_NN * rNN.pE + PESO_POISSON * (rP.pE / 100);
+    pV = PESO_NN * rNN.pV + PESO_POISSON * (rP.pV / 100);
+    const tot = pL + pE + pV;
+    pL /= tot; pE /= tot; pV /= tot;
+    pL = +(pL * 100).toFixed(1);
+    pE = +(pE * 100).toFixed(1);
+    pV = +(pV * 100).toFixed(1);
+  } else {
+    // Solo Poisson si NN no está disponible
+    pL = rP.pL; pE = rP.pE; pV = rP.pV;
+  }
+
+  const probs   = [pL, pE, pV].sort((a, b) => b - a);
+  const confianza = +((probs[0] - probs[1]) / probs[0] * 100).toFixed(1);
+
+  return {
+    ll: rP.ll, lv: rP.lv,
+    pL, pE, pV,
+    marcador: rP.marcador,
+    confianza,
+    modoEnsemble: NN_LISTO,
+    M: rP.M, sl, sv
+  };
+}
+
 
 // ── Historial H2H real (últimos 5 enfrentamientos por par) ──────
 
@@ -226,19 +333,20 @@ function buildRanking(){
   });
 }
 
-function buildMatchCards(){
+async function buildMatchCards(){
   const grid=document.getElementById('matchesGrid');
-  PROXIMOS.forEach(m=>{
-    const r=predecir(m.local,m.visita);if(!r)return;
-    grid.innerHTML+=`<div class="match-g"><div class="match-date-g">${m.fecha}</div><div class="match-teams-g"><div class="team-g"><div class="team-logo-g"><img src="${LOGOS[m.local]||''}" alt="${m.local}" onerror="this.style.display='none'"></div><div class="team-name-g">${m.local}</div></div><div class="vs-g">VS</div><div class="team-g"><div class="team-logo-g"><img src="${LOGOS[m.visita]||''}" alt="${m.visita}" onerror="this.style.display='none'"></div><div class="team-name-g">${m.visita}</div></div></div><div class="pred-g"><h4>Predicción del Modelo</h4><div class="pred-g-score">${r.marcador}</div><div class="pred-g-conf">Confianza: ${r.confianza}%</div><div class="pred-g-probs">L: ${r.pL}% · E: ${r.pE}% · V: ${r.pV}%</div></div><button class="detail-btn-g" onclick="openModal('${m.local}','${m.visita}')">Ver análisis detallado</button></div>`;
-  });
+  for(const m of PROXIMOS){
+    const r=await predecir(m.local,m.visita);if(!r)continue;
+    const modoTag = r.modoEnsemble ? '🧠 Ensemble' : '📊 Poisson';
+    grid.innerHTML+=`<div class="match-g"><div class="match-date-g">${m.fecha}</div><div class="match-teams-g"><div class="team-g"><div class="team-logo-g"><img src="${LOGOS[m.local]||''}" alt="${m.local}" onerror="this.style.display='none'"></div><div class="team-name-g">${m.local}</div></div><div class="vs-g">VS</div><div class="team-g"><div class="team-logo-g"><img src="${LOGOS[m.visita]||''}" alt="${m.visita}" onerror="this.style.display='none'"></div><div class="team-name-g">${m.visita}</div></div></div><div class="pred-g"><h4>Predicción del Modelo <small style="font-size:0.75em;opacity:0.7">${modoTag}</small></h4><div class="pred-g-score">${r.marcador}</div><div class="pred-g-conf">Confianza: ${r.confianza}%</div><div class="pred-g-probs">L: ${r.pL}% · E: ${r.pE}% · V: ${r.pV}%</div></div><button class="detail-btn-g" onclick="openModal('${m.local}','${m.visita}')">Ver análisis detallado</button></div>`;
+  }
 }
 
-function predictMatch(){
+async function predictMatch(){
   const local=document.getElementById('team1').value,visita=document.getElementById('team2').value;
   if(!local||!visita){alert('Selecciona ambos equipos');return;}
   if(local===visita){alert('Selecciona equipos diferentes');return;}
-  const r=predecir(local,visita);if(!r)return;
+  const r=await predecir(local,visita);if(!r)return;
 
   document.getElementById('predictedScore').textContent=r.marcador;
   document.getElementById('labelLocal').textContent=`Victoria ${local}`;
@@ -287,8 +395,8 @@ function predictMatch(){
   document.getElementById('predictionResult').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-function openModal(local,visita){
-  const r=predecir(local,visita);if(!r)return;
+async function openModal(local,visita){
+  const r=await predecir(local,visita);if(!r)return;
   document.getElementById('modalTitle').textContent=`${local} vs ${visita}`;
   document.getElementById('modalProbLocal').textContent=r.pL+'%';
   document.getElementById('modalProbEmpate').textContent=r.pE+'%';
