@@ -1,0 +1,2334 @@
+{
+  "_meta": {
+    "proyecto": "Score Guardians · Liga MX",
+    "universidad": "Universidad Tres Culturas",
+    "actualizado": "Marzo 2026",
+    "torneos_base": "AP2122 → AP2526 (8 torneos completos)",
+    "instrucciones": "Actualiza 'stats' corriendo el notebook y copiando la salida. Actualiza 'proximos' cada jornada manualmente o via API."
+  },
+  "config": {
+    "promedio_goles_liga": 1.2112,
+    "factor_localia": 1.15,
+    "max_goles": 7,
+    "torneo_en_curso": "CL2526",
+    "jornada_actual": 12
+  },
+  "stats": {
+    "America": {
+      "ppg": 2.0441,
+      "gfpj": 1.7721,
+      "gcpj": 0.875,
+      "fa": 1.4631,
+      "fd": 0.7453,
+      "ir": 88.4,
+      "torneos": 8
+    },
+    "Tigres": {
+      "ppg": 1.8382,
+      "gfpj": 1.6471,
+      "gcpj": 0.9926,
+      "fa": 1.3599,
+      "fd": 0.8455,
+      "ir": 79.7,
+      "torneos": 8
+    },
+    "Cruz Azul": {
+      "ppg": 1.75,
+      "gfpj": 1.5294,
+      "gcpj": 0.9706,
+      "fa": 1.2627,
+      "fd": 0.8267,
+      "ir": 75.9,
+      "torneos": 8
+    },
+    "Monterrey": {
+      "ppg": 1.7279,
+      "gfpj": 1.5147,
+      "gcpj": 0.9779,
+      "fa": 1.2506,
+      "fd": 0.833,
+      "ir": 75.0,
+      "torneos": 8
+    },
+    "Pachuca": {
+      "ppg": 1.6765,
+      "gfpj": 1.4412,
+      "gcpj": 1.0221,
+      "fa": 1.1899,
+      "fd": 0.8706,
+      "ir": 71.9,
+      "torneos": 8
+    },
+    "Toluca": {
+      "ppg": 1.5662,
+      "gfpj": 1.4412,
+      "gcpj": 1.0588,
+      "fa": 1.1899,
+      "fd": 0.9019,
+      "ir": 68.7,
+      "torneos": 8
+    },
+    "Chivas": {
+      "ppg": 1.5882,
+      "gfpj": 1.3529,
+      "gcpj": 1.0147,
+      "fa": 1.117,
+      "fd": 0.8643,
+      "ir": 68.4,
+      "torneos": 8
+    },
+    "Santos": {
+      "ppg": 1.3382,
+      "gfpj": 1.2132,
+      "gcpj": 1.1544,
+      "fa": 1.0017,
+      "fd": 0.9833,
+      "ir": 58.0,
+      "torneos": 8
+    },
+    "Atlas": {
+      "ppg": 1.2206,
+      "gfpj": 1.1324,
+      "gcpj": 1.1471,
+      "fa": 0.9349,
+      "fd": 0.977,
+      "ir": 53.9,
+      "torneos": 8
+    },
+    "Pumas": {
+      "ppg": 1.1544,
+      "gfpj": 1.0956,
+      "gcpj": 1.2206,
+      "fa": 0.9046,
+      "fd": 1.0397,
+      "ir": 50.7,
+      "torneos": 8
+    },
+    "Necaxa": {
+      "ppg": 1.1765,
+      "gfpj": 1.0588,
+      "gcpj": 1.2426,
+      "fa": 0.8742,
+      "fd": 1.0585,
+      "ir": 50.3,
+      "torneos": 8
+    },
+    "Leon": {
+      "ppg": 1.125,
+      "gfpj": 1.0809,
+      "gcpj": 1.2941,
+      "fa": 0.8924,
+      "fd": 1.1023,
+      "ir": 48.7,
+      "torneos": 8
+    },
+    "Puebla": {
+      "ppg": 1.0735,
+      "gfpj": 0.9926,
+      "gcpj": 1.2794,
+      "fa": 0.8196,
+      "fd": 1.0898,
+      "ir": 46.2,
+      "torneos": 8
+    },
+    "Tijuana": {
+      "ppg": 0.9559,
+      "gfpj": 0.9338,
+      "gcpj": 1.2794,
+      "fa": 0.771,
+      "fd": 1.0898,
+      "ir": 42.3,
+      "torneos": 8
+    },
+    "Queretaro": {
+      "ppg": 0.9853,
+      "gfpj": 0.9265,
+      "gcpj": 1.3382,
+      "fa": 0.7649,
+      "fd": 1.1399,
+      "ir": 42.1,
+      "torneos": 8
+    },
+    "Mazatlan": {
+      "ppg": 0.8971,
+      "gfpj": 0.8676,
+      "gcpj": 1.3529,
+      "fa": 0.7164,
+      "fd": 1.1524,
+      "ir": 38.8,
+      "torneos": 8
+    },
+    "Juarez": {
+      "ppg": 0.8529,
+      "gfpj": 0.8676,
+      "gcpj": 1.3971,
+      "fa": 0.7164,
+      "fd": 1.19,
+      "ir": 37.1,
+      "torneos": 8
+    },
+    "San Luis": {
+      "ppg": 0.8235,
+      "gfpj": 0.9338,
+      "gcpj": 1.5147,
+      "fa": 0.771,
+      "fd": 1.2902,
+      "ir": 36.0,
+      "torneos": 8
+    }
+  },
+  "h2h": {
+    "America_Chivas": [
+      {
+        "fecha": "25/01/25",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "12/10/24",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "21/10/23",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "America_Cruz Azul": [
+      {
+        "fecha": "17/03/25",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "30/11/24",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "09/03/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "07/10/23",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "America_Leon": [
+      {
+        "fecha": "28/02/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "America_Mazatlan": [
+      {
+        "fecha": "15/03/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "25/01/25",
+        "score": "4 - 0",
+        "gf_local": 4,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "02/11/24",
+        "score": "5 - 0",
+        "gf_local": 5,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "06/07/24",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      }
+    ],
+    "America_Monterrey": [
+      {
+        "fecha": "07/02/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "America_Necaxa": [
+      {
+        "fecha": "31/01/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "America_Pachuca": [
+      {
+        "fecha": "14/02/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "17/01/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "America_Puebla": [
+      {
+        "fecha": "20/02/26",
+        "score": "4 - 0",
+        "gf_local": 4,
+        "gf_visita": 0
+      }
+    ],
+    "America_Pumas": [
+      {
+        "fecha": "27/09/25",
+        "score": "4 - 1",
+        "gf_local": 4,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "08/03/25",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "22/09/24",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "11/05/24",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "13/01/24",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "America_Queretaro": [
+      {
+        "fecha": "07/03/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "America_San Luis": [
+      {
+        "fecha": "14/01/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "America_Tijuana": [
+      {
+        "fecha": "09/01/26",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      }
+    ],
+    "America_Toluca": [
+      {
+        "fecha": "04/03/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Atlas_Chivas": [
+      {
+        "fecha": "07/03/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "17/01/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Atlas_Cruz Azul": [
+      {
+        "fecha": "14/01/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Atlas_Juarez": [
+      {
+        "fecha": "28/02/26",
+        "score": "1 - 3",
+        "gf_local": 1,
+        "gf_visita": 3
+      }
+    ],
+    "Atlas_Leon": [
+      {
+        "fecha": "14/02/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "22/10/25",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Atlas_Monterrey": [
+      {
+        "fecha": "31/01/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "10/01/26",
+        "score": "1 - 3",
+        "gf_local": 1,
+        "gf_visita": 3
+      }
+    ],
+    "Atlas_Necaxa": [
+      {
+        "fecha": "21/02/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Atlas_Queretaro": [
+      {
+        "fecha": "15/03/25",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "02/11/24",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "07/09/24",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "Atlas_San Luis": [
+      {
+        "fecha": "07/02/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Atlas_Tijuana": [
+      {
+        "fecha": "04/03/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Atlas_Toluca": [
+      {
+        "fecha": "14/03/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Chivas_America": [
+      {
+        "fecha": "25/01/25",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "12/10/24",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "21/10/23",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Chivas_Atlas": [
+      {
+        "fecha": "07/03/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "17/01/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Chivas_Cruz Azul": [
+      {
+        "fecha": "30/11/25",
+        "score": "2 - 3",
+        "gf_local": 2,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "27/11/25",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "16/02/24",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "23/09/23",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Chivas_Juarez": [
+      {
+        "fecha": "13/01/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Chivas_Leon": [
+      {
+        "fecha": "04/03/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Chivas_Mazatlan": [
+      {
+        "fecha": "06/02/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Chivas_Monterrey": [
+      {
+        "fecha": "09/11/25",
+        "score": "4 - 2",
+        "gf_local": 4,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "16/03/25",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "26/10/24",
+        "score": "1 - 3",
+        "gf_local": 1,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "13/07/24",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Chivas_Necaxa": [
+      {
+        "fecha": "10/01/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Chivas_Pumas": [
+      {
+        "fecha": "13/02/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Chivas_Queretaro": [
+      {
+        "fecha": "22/02/26",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      }
+    ],
+    "Chivas_San Luis": [
+      {
+        "fecha": "31/01/26",
+        "score": "3 - 2",
+        "gf_local": 3,
+        "gf_visita": 2
+      }
+    ],
+    "Chivas_Santos": [
+      {
+        "fecha": "14/03/26",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "01/03/25",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "19/10/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Chivas_Toluca": [
+      {
+        "fecha": "28/02/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Cruz Azul_America": [
+      {
+        "fecha": "17/03/25",
+        "score": "1 - 3",
+        "gf_local": 1,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "30/11/24",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "09/03/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "07/10/23",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Cruz Azul_Atlas": [
+      {
+        "fecha": "14/01/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Cruz Azul_Chivas": [
+      {
+        "fecha": "30/11/25",
+        "score": "3 - 2",
+        "gf_local": 3,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "27/11/25",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "16/02/24",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "23/09/23",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Cruz Azul_Juarez": [
+      {
+        "fecha": "30/01/26",
+        "score": "4 - 3",
+        "gf_local": 4,
+        "gf_visita": 3
+      }
+    ],
+    "Cruz Azul_Mazatlan": [
+      {
+        "fecha": "13/01/26",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "08/03/25",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "22/09/24",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      }
+    ],
+    "Cruz Azul_Monterrey": [
+      {
+        "fecha": "28/02/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Cruz Azul_Puebla": [
+      {
+        "fecha": "16/01/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Cruz Azul_Pumas": [
+      {
+        "fecha": "14/03/26",
+        "score": "2 - 2",
+        "gf_local": 2,
+        "gf_visita": 2
+      }
+    ],
+    "Cruz Azul_San Luis": [
+      {
+        "fecha": "04/03/26",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      }
+    ],
+    "Cruz Azul_Santos": [
+      {
+        "fecha": "21/02/26",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      }
+    ],
+    "Cruz Azul_Tijuana": [
+      {
+        "fecha": "14/02/26",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      }
+    ],
+    "Cruz Azul_Toluca": [
+      {
+        "fecha": "07/02/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "10/01/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Juarez_Atlas": [
+      {
+        "fecha": "28/02/26",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      }
+    ],
+    "Juarez_Chivas": [
+      {
+        "fecha": "13/01/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Juarez_Cruz Azul": [
+      {
+        "fecha": "30/01/26",
+        "score": "3 - 4",
+        "gf_local": 3,
+        "gf_visita": 4
+      }
+    ],
+    "Juarez_Monterrey": [
+      {
+        "fecha": "13/03/26",
+        "score": "2 - 2",
+        "gf_local": 2,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "14/02/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "15/02/25",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "05/10/24",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      }
+    ],
+    "Juarez_Pumas": [
+      {
+        "fecha": "04/03/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Juarez_San Luis": [
+      {
+        "fecha": "21/02/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "Juarez_Tigres": [
+      {
+        "fecha": "22/02/25",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "12/10/24",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "27/07/24",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "16/03/24",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "21/10/23",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Juarez_Toluca": [
+      {
+        "fecha": "08/03/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Leon_America": [
+      {
+        "fecha": "28/02/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Leon_Atlas": [
+      {
+        "fecha": "14/02/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Leon_Chivas": [
+      {
+        "fecha": "04/03/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Leon_Mazatlan": [
+      {
+        "fecha": "06/03/26",
+        "score": "2 - 4",
+        "gf_local": 2,
+        "gf_visita": 4
+      }
+    ],
+    "Leon_Puebla": [
+      {
+        "fecha": "08/02/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "Leon_Pumas": [
+      {
+        "fecha": "17/01/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Leon_San Luis": [
+      {
+        "fecha": "22/02/25",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "26/10/24",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "13/07/24",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Leon_Tigres": [
+      {
+        "fecha": "22/02/26",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      }
+    ],
+    "Leon_Tijuana": [
+      {
+        "fecha": "14/03/26",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "22/02/25",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "12/10/24",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "Mazatlan_America": [
+      {
+        "fecha": "15/03/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "25/01/25",
+        "score": "0 - 4",
+        "gf_local": 0,
+        "gf_visita": 4
+      },
+      {
+        "fecha": "02/11/24",
+        "score": "0 - 5",
+        "gf_local": 0,
+        "gf_visita": 5
+      },
+      {
+        "fecha": "06/07/24",
+        "score": "1 - 3",
+        "gf_local": 1,
+        "gf_visita": 3
+      }
+    ],
+    "Mazatlan_Chivas": [
+      {
+        "fecha": "06/02/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Mazatlan_Cruz Azul": [
+      {
+        "fecha": "13/01/26",
+        "score": "1 - 3",
+        "gf_local": 1,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "08/03/25",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "22/09/24",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      }
+    ],
+    "Mazatlan_Leon": [
+      {
+        "fecha": "06/03/26",
+        "score": "4 - 2",
+        "gf_local": 4,
+        "gf_visita": 2
+      }
+    ],
+    "Mazatlan_Monterrey": [
+      {
+        "fecha": "16/01/26",
+        "score": "1 - 5",
+        "gf_local": 1,
+        "gf_visita": 5
+      }
+    ],
+    "Mazatlan_Pachuca": [
+      {
+        "fecha": "27/02/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Mazatlan_Puebla": [
+      {
+        "fecha": "05/03/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Mazatlan_Pumas": [
+      {
+        "fecha": "21/02/26",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      }
+    ],
+    "Monterrey_America": [
+      {
+        "fecha": "07/02/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Monterrey_Atlas": [
+      {
+        "fecha": "31/01/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "10/01/26",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      }
+    ],
+    "Monterrey_Chivas": [
+      {
+        "fecha": "09/11/25",
+        "score": "2 - 4",
+        "gf_local": 2,
+        "gf_visita": 4
+      },
+      {
+        "fecha": "16/03/25",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "26/10/24",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "13/07/24",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Monterrey_Cruz Azul": [
+      {
+        "fecha": "28/02/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Monterrey_Juarez": [
+      {
+        "fecha": "13/03/26",
+        "score": "2 - 2",
+        "gf_local": 2,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "14/02/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "15/02/25",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "05/10/24",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      }
+    ],
+    "Monterrey_Mazatlan": [
+      {
+        "fecha": "16/01/26",
+        "score": "5 - 1",
+        "gf_local": 5,
+        "gf_visita": 1
+      }
+    ],
+    "Monterrey_Queretaro": [
+      {
+        "fecha": "04/03/26",
+        "score": "4 - 0",
+        "gf_local": 4,
+        "gf_visita": 0
+      }
+    ],
+    "Monterrey_Tigres": [
+      {
+        "fecha": "08/03/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "16/03/25",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "19/10/24",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Monterrey_Toluca": [
+      {
+        "fecha": "20/02/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Necaxa_America": [
+      {
+        "fecha": "31/01/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Necaxa_Atlas": [
+      {
+        "fecha": "21/02/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Necaxa_Chivas": [
+      {
+        "fecha": "10/01/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Necaxa_Pachuca": [
+      {
+        "fecha": "05/03/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Necaxa_Puebla": [
+      {
+        "fecha": "13/03/26",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "22/02/25",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "12/10/24",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "27/07/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Necaxa_Pumas": [
+      {
+        "fecha": "07/03/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Necaxa_Tigres": [
+      {
+        "fecha": "28/02/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "14/02/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Necaxa_Tijuana": [
+      {
+        "fecha": "16/11/24",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "27/04/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "12/08/23",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Pachuca_America": [
+      {
+        "fecha": "14/02/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "17/01/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Pachuca_Mazatlan": [
+      {
+        "fecha": "27/02/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Pachuca_Necaxa": [
+      {
+        "fecha": "05/03/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Pachuca_Puebla": [
+      {
+        "fecha": "08/03/26",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      }
+    ],
+    "Pachuca_Pumas": [
+      {
+        "fecha": "07/02/26",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "10/01/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Pachuca_San Luis": [
+      {
+        "fecha": "14/03/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "08/02/25",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "28/09/24",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "Pachuca_Tijuana": [
+      {
+        "fecha": "20/02/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Pachuca_Toluca": [
+      {
+        "fecha": "26/10/25",
+        "score": "2 - 2",
+        "gf_local": 2,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "12/01/25",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "20/10/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "15/07/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "18/03/24",
+        "score": "2 - 2",
+        "gf_local": 2,
+        "gf_visita": 2
+      }
+    ],
+    "Puebla_America": [
+      {
+        "fecha": "20/02/26",
+        "score": "0 - 4",
+        "gf_local": 0,
+        "gf_visita": 4
+      }
+    ],
+    "Puebla_Cruz Azul": [
+      {
+        "fecha": "16/01/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "31/10/25",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      }
+    ],
+    "Puebla_Leon": [
+      {
+        "fecha": "08/02/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Puebla_Mazatlan": [
+      {
+        "fecha": "05/03/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "Puebla_Necaxa": [
+      {
+        "fecha": "13/03/26",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "22/02/25",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "12/10/24",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "27/07/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Puebla_Pachuca": [
+      {
+        "fecha": "08/03/26",
+        "score": "1 - 3",
+        "gf_local": 1,
+        "gf_visita": 3
+      }
+    ],
+    "Puebla_Santos": [
+      {
+        "fecha": "01/03/25",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "05/10/24",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "20/07/24",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "30/01/24",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "07/10/23",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Pumas_America": [
+      {
+        "fecha": "27/09/25",
+        "score": "1 - 4",
+        "gf_local": 1,
+        "gf_visita": 4
+      },
+      {
+        "fecha": "08/03/25",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "22/09/24",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "11/05/24",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "13/01/24",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Pumas_Chivas": [
+      {
+        "fecha": "13/02/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Pumas_Cruz Azul": [
+      {
+        "fecha": "14/03/26",
+        "score": "2 - 2",
+        "gf_local": 2,
+        "gf_visita": 2
+      }
+    ],
+    "Pumas_Juarez": [
+      {
+        "fecha": "04/03/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Pumas_Leon": [
+      {
+        "fecha": "17/01/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Pumas_Mazatlan": [
+      {
+        "fecha": "21/02/26",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      }
+    ],
+    "Pumas_Necaxa": [
+      {
+        "fecha": "07/03/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Pumas_Pachuca": [
+      {
+        "fecha": "07/02/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "10/01/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Pumas_San Luis": [
+      {
+        "fecha": "28/02/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Pumas_Santos": [
+      {
+        "fecha": "30/01/26",
+        "score": "4 - 0",
+        "gf_local": 4,
+        "gf_visita": 0
+      }
+    ],
+    "Pumas_Tigres": [
+      {
+        "fecha": "14/01/26",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Queretaro_America": [
+      {
+        "fecha": "07/03/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Queretaro_Atlas": [
+      {
+        "fecha": "15/03/25",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "02/11/24",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "07/09/24",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Queretaro_Chivas": [
+      {
+        "fecha": "22/02/26",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      }
+    ],
+    "Queretaro_Monterrey": [
+      {
+        "fecha": "04/03/26",
+        "score": "0 - 4",
+        "gf_local": 0,
+        "gf_visita": 4
+      }
+    ],
+    "Queretaro_Tigres": [
+      {
+        "fecha": "15/03/26",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "08/02/25",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "19/10/24",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      }
+    ],
+    "Queretaro_Tijuana": [
+      {
+        "fecha": "14/01/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "San Luis_America": [
+      {
+        "fecha": "14/01/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "San Luis_Atlas": [
+      {
+        "fecha": "07/02/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "San Luis_Chivas": [
+      {
+        "fecha": "31/01/26",
+        "score": "2 - 3",
+        "gf_local": 2,
+        "gf_visita": 3
+      }
+    ],
+    "San Luis_Cruz Azul": [
+      {
+        "fecha": "04/03/26",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      }
+    ],
+    "San Luis_Juarez": [
+      {
+        "fecha": "21/02/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "31/10/25",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "San Luis_Leon": [
+      {
+        "fecha": "22/02/25",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "26/10/24",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "13/07/24",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "San Luis_Pachuca": [
+      {
+        "fecha": "14/03/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "08/02/25",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "28/09/24",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "San Luis_Pumas": [
+      {
+        "fecha": "28/02/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "San Luis_Tijuana": [
+      {
+        "fecha": "17/01/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Santos_Chivas": [
+      {
+        "fecha": "14/03/26",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      },
+      {
+        "fecha": "01/03/25",
+        "score": "0 - 2",
+        "gf_local": 0,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "19/10/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Santos_Cruz Azul": [
+      {
+        "fecha": "21/02/26",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      }
+    ],
+    "Santos_Puebla": [
+      {
+        "fecha": "01/03/25",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "05/10/24",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "20/07/24",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "30/01/24",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "07/10/23",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "Santos_Pumas": [
+      {
+        "fecha": "30/01/26",
+        "score": "0 - 4",
+        "gf_local": 0,
+        "gf_visita": 4
+      }
+    ],
+    "Santos_Queretaro": [
+      {
+        "fecha": "24/10/25",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      }
+    ],
+    "Santos_Tigres": [
+      {
+        "fecha": "05/03/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "06/02/26",
+        "score": "1 - 5",
+        "gf_local": 1,
+        "gf_visita": 5
+      }
+    ],
+    "Santos_Tijuana": [
+      {
+        "fecha": "08/03/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "Santos_Toluca": [
+      {
+        "fecha": "13/02/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "14/01/26",
+        "score": "1 - 3",
+        "gf_local": 1,
+        "gf_visita": 3
+      }
+    ],
+    "Tigres_Juarez": [
+      {
+        "fecha": "22/02/25",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "12/10/24",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "27/07/24",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "16/03/24",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "21/10/23",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Tigres_Leon": [
+      {
+        "fecha": "22/02/26",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      }
+    ],
+    "Tigres_Monterrey": [
+      {
+        "fecha": "08/03/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "16/03/25",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "19/10/24",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Tigres_Necaxa": [
+      {
+        "fecha": "28/02/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "14/02/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Tigres_Pumas": [
+      {
+        "fecha": "14/01/26",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      }
+    ],
+    "Tigres_Queretaro": [
+      {
+        "fecha": "15/03/26",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "08/02/25",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "19/10/24",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Tigres_San Luis": [
+      {
+        "fecha": "08/11/25",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      }
+    ],
+    "Tigres_Santos": [
+      {
+        "fecha": "05/03/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "06/02/26",
+        "score": "5 - 1",
+        "gf_local": 5,
+        "gf_visita": 1
+      }
+    ],
+    "Tigres_Tijuana": [
+      {
+        "fecha": "01/02/26",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      }
+    ],
+    "Tijuana_America": [
+      {
+        "fecha": "09/01/26",
+        "score": "0 - 0",
+        "gf_local": 0,
+        "gf_visita": 0
+      }
+    ],
+    "Tijuana_Atlas": [
+      {
+        "fecha": "04/03/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Tijuana_Cruz Azul": [
+      {
+        "fecha": "14/02/26",
+        "score": "0 - 3",
+        "gf_local": 0,
+        "gf_visita": 3
+      }
+    ],
+    "Tijuana_Leon": [
+      {
+        "fecha": "14/03/26",
+        "score": "3 - 0",
+        "gf_local": 3,
+        "gf_visita": 0
+      },
+      {
+        "fecha": "22/02/25",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "12/10/24",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Tijuana_Necaxa": [
+      {
+        "fecha": "16/11/24",
+        "score": "0 - 1",
+        "gf_local": 0,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "27/04/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "12/08/23",
+        "score": "1 - 0",
+        "gf_local": 1,
+        "gf_visita": 0
+      }
+    ],
+    "Tijuana_Pachuca": [
+      {
+        "fecha": "20/02/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Tijuana_Queretaro": [
+      {
+        "fecha": "14/01/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      }
+    ],
+    "Tijuana_San Luis": [
+      {
+        "fecha": "17/01/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Tijuana_Santos": [
+      {
+        "fecha": "08/03/26",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      }
+    ],
+    "Tijuana_Tigres": [
+      {
+        "fecha": "01/02/26",
+        "score": "1 - 3",
+        "gf_local": 1,
+        "gf_visita": 3
+      }
+    ],
+    "Toluca_America": [
+      {
+        "fecha": "04/03/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "09/11/25",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Toluca_Atlas": [
+      {
+        "fecha": "14/03/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Toluca_Chivas": [
+      {
+        "fecha": "28/02/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Toluca_Cruz Azul": [
+      {
+        "fecha": "07/02/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "10/01/26",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      }
+    ],
+    "Toluca_Juarez": [
+      {
+        "fecha": "08/03/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Toluca_Monterrey": [
+      {
+        "fecha": "20/02/26",
+        "score": "2 - 0",
+        "gf_local": 2,
+        "gf_visita": 0
+      }
+    ],
+    "Toluca_Pachuca": [
+      {
+        "fecha": "26/10/25",
+        "score": "2 - 2",
+        "gf_local": 2,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "12/01/25",
+        "score": "1 - 2",
+        "gf_local": 1,
+        "gf_visita": 2
+      },
+      {
+        "fecha": "20/10/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "15/07/24",
+        "score": "1 - 1",
+        "gf_local": 1,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "18/03/24",
+        "score": "2 - 2",
+        "gf_local": 2,
+        "gf_visita": 2
+      }
+    ],
+    "Toluca_Santos": [
+      {
+        "fecha": "13/02/26",
+        "score": "2 - 1",
+        "gf_local": 2,
+        "gf_visita": 1
+      },
+      {
+        "fecha": "14/01/26",
+        "score": "3 - 1",
+        "gf_local": 3,
+        "gf_visita": 1
+      }
+    ]
+  },
+  "proximos": [
+    {
+      "local": "Necaxa",
+      "visita": "Tijuana",
+      "fecha": "Vie 20 Mar · 19:00",
+      "jornada": 12
+    },
+    {
+      "local": "Mazatlan",
+      "visita": "Cruz Azul",
+      "fecha": "Vie 20 Mar · 21:06",
+      "jornada": 12
+    },
+    {
+      "local": "Atlas",
+      "visita": "Queretaro",
+      "fecha": "Sáb 21 Mar · 17:00",
+      "jornada": 12
+    },
+    {
+      "local": "San Luis",
+      "visita": "Leon",
+      "fecha": "Sáb 21 Mar · 19:00",
+      "jornada": 12
+    },
+    {
+      "local": "Monterrey",
+      "visita": "Chivas",
+      "fecha": "Sáb 21 Mar · 19:05",
+      "jornada": 12
+    },
+    {
+      "local": "Pumas",
+      "visita": "America",
+      "fecha": "Sáb 21 Mar · 21:10",
+      "jornada": 12
+    },
+    {
+      "local": "Pachuca",
+      "visita": "Toluca",
+      "fecha": "Dom 22 Mar · 17:00",
+      "jornada": 12
+    },
+    {
+      "local": "Santos",
+      "visita": "Puebla",
+      "fecha": "Dom 22 Mar · 17:00",
+      "jornada": 12
+    },
+    {
+      "local": "Juarez",
+      "visita": "Tigres",
+      "fecha": "Dom 22 Mar · 19:00",
+      "jornada": 12
+    }
+  ]
+}

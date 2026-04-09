@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Score Guardians · Liga MX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo-glass">ScoreGuardians</div>
+  <div class="nav-pills">
+    <a href="#sec-predictor" class="nav-pill">Predictor</a>
+    <a href="#sec-proximos" class="nav-pill">Partidos</a>
+    <a href="#sec-graficas" class="nav-pill">Análisis</a>
+    <a href="#sec-ranking" class="nav-pill">Ranking</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+  <div class="hero-content">
+    <div class="hero-badge">Liga MX · Predictor Inteligente · UTC 2026</div>
+    <h1><span class="solid">SCORE</span><br><span class="grad">GUARDIANS</span></h1>
+    <p class="hero-sub">Sistema de predicción basado en Distribución de Poisson e Inteligencia Artificial — Apertura/Clausura 2021–2026</p>
+    <div class="hero-stats-row">
+      <div class="hero-stat-glass"><div class="hsg-val">18</div><div class="hsg-lab">Equipos</div></div>
+      <div class="hero-stat-glass"><div class="hsg-val">5+</div><div class="hsg-lab">Torneos</div></div>
+      <div class="hero-stat-glass"><div class="hsg-val">λ</div><div class="hsg-lab">Poisson</div></div>
+    </div>
+    <a href="#sec-predictor" class="cta-glass">⚽ Iniciar Predicción</a>
+  </div>
+</section>
+
+<!-- PREDICTOR -->
+<section class="section" id="sec-predictor">
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Elige tu <span class="grad">partido</span></h2>
+    </div>
+    <div class="glass-card">
+      <div class="selector-glass">
+        <div class="team-side-g" style="text-align:center;">
+          <label for="team1">Equipo Local</label>
+          <div class="logo-glass-wrap empty" id="logo1"><span>⚽</span></div>
+          <select id="team1" onchange="updateTeamLogo('team1','logo1')">
+            <option value="">— Seleccionar —</option>
+            <option>America</option><option>Chivas</option><option>Cruz Azul</option><option>Pumas</option>
+            <option>Tigres</option><option>Monterrey</option><option>Santos</option><option>Leon</option>
+            <option>Toluca</option><option>Atlas</option><option>Pachuca</option><option>Tijuana</option>
+            <option>Necaxa</option><option>Puebla</option><option>Queretaro</option><option>Mazatlan</option>
+            <option>Juarez</option><option>San Luis</option>
+          </select>
+        </div>
+        <div class="vs-glass"><div class="vs-glass-line"></div><div class="vs-glass-circle">VS</div><div class="vs-glass-line"></div></div>
+        <div class="team-side-g" style="text-align:center;">
+          <label for="team2">Equipo Visitante</label>
+          <div class="logo-glass-wrap empty" id="logo2"><span>⚽</span></div>
+          <select id="team2" onchange="updateTeamLogo('team2','logo2')">
+            <option value="">— Seleccionar —</option>
+            <option>America</option><option>Chivas</option><option>Cruz Azul</option><option>Pumas</option>
+            <option>Tigres</option><option>Monterrey</option><option>Santos</option><option>Leon</option>
+            <option>Toluca</option><option>Atlas</option><option>Pachuca</option><option>Tijuana</option>
+            <option>Necaxa</option><option>Puebla</option><option>Queretaro</option><option>Mazatlan</option>
+            <option>Juarez</option><option>San Luis</option>
+          </select>
+        </div>
+      </div>
+      <button class="predict-btn-glass" onclick="predictMatch()">✨ Predecir Resultado</button>
+      <div class="prediction-result" id="predictionResult">
+        <div class="res-header-g">
+          <div class="res-label-g">Resultado Predicho</div>
+          <div class="score-glass" id="predictedScore">— — —</div>
+        </div>
+        <div class="probs-glass">
+          <div class="prob-g"><div class="pct l" id="probLocal">0%</div><div class="lab" id="labelLocal">Victoria Local</div></div>
+          <div class="prob-g"><div class="pct e" id="probDraw">0%</div><div class="lab">Empate</div></div>
+          <div class="prob-g"><div class="pct v" id="probVisit">0%</div><div class="lab" id="labelVisit">Victoria Visitante</div></div>
+        </div>
+        <div class="bars-glass">
+          <div class="bar-g-row"><span class="bar-g-name" id="bLabelL">Local</span><div class="bar-g-track"><div class="bar-g-fill l" id="barLocal"></div></div><span class="bar-g-pct" id="bPL" style="color:var(--blue)">0%</span></div>
+          <div class="bar-g-row"><span class="bar-g-name">Empate</span><div class="bar-g-track"><div class="bar-g-fill e" id="barDraw"></div></div><span class="bar-g-pct" id="bPE" style="color:#d97706">0%</span></div>
+          <div class="bar-g-row"><span class="bar-g-name" id="bLabelV">Visitante</span><div class="bar-g-track"><div class="bar-g-fill v" id="barVisit"></div></div><span class="bar-g-pct" id="bPV" style="color:var(--lime-dark)">0%</span></div>
+        </div>
+        <div class="lambda-g" id="lambdaSection" style="display:none;"><div id="lambdaGrid" style="display:contents;"></div></div>
+        <div class="conf-g" id="confBlock" style="display:none;">
+          <span class="conf-g-label">Índice de Confianza</span>
+          <div class="conf-g-track"><div class="conf-g-fill" id="confBar"></div></div>
+          <span class="conf-g-pct" id="confPct">0%</span>
+        </div>
+        <div style="max-width:480px;margin:20px auto;"><canvas id="chartPred" height="180"></canvas></div>
+        <div class="stats-g" id="statsPanel"></div>
+        <div class="history-g"><h4>Últimos 5 Enfrentamientos</h4><div id="historyMatches"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRÓXIMOS -->
+<section class="section" id="sec-proximos" style="background:rgba(255,255,255,0.3);">
+  <div class="container">
+    <div class="sec-header">
+      <span class="sec-tag">Jornada 12 — CL 2025</span>
+      <h2 class="sec-title">Próximos <span class="grad">Partidos</span></h2>
+    </div>
+    <div class="matches-glass" id="matchesGrid"></div>
+  </div>
+</section>
+
+<!-- GRÁFICAS -->
+<section class="section" id="sec-graficas">
+  <div class="container">
+    <div class="sec-header">
+      <h2 class="sec-title">Análisis de <span class="grad">Rendimiento</span></h2>
+    </div>
+    <div class="charts-glass">
+      <div class="chart-g chart-wide"><div class="chart-title-g">Índice de Rendimiento — Top 18 Equipos</div><canvas id="chartRendimiento" height="100"></canvas></div>
+      <div class="chart-g"><div class="chart-title-g">Goles a Favor vs En Contra</div><canvas id="chartGoles" height="220"></canvas></div>
+      <div class="chart-g"><div class="chart-title-g">Puntos por Partido (PPG)</div><canvas id="chartPPG" height="220"></canvas></div>
+      <div class="chart-g"><div class="chart-title-g">Fuerza Ataque vs Defensa (Top 8)</div><canvas id="chartRadar" height="220"></canvas></div>
+      <div class="chart-g" id="poissonSection"><div class="chart-title-g">Distribución de Poisson</div><canvas id="chartPoisson" height="220"></canvas><p id="poissonHint" style="text-align:center;color:var(--text-dim);font-size:0.8em;margin-top:8px;">Selecciona un partido para ver la distribución</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RANKING -->
+<section class="section" id="sec-ranking" style="background:rgba(255,255,255,0.3);">
+  <div class="container" style="max-width:900px;">
+    <div class="sec-header">
+      <h2 class="sec-title">Ranking por <span class="grad">IR</span></h2>
+    </div>
+    <div class="glass-card" style="padding:0;overflow:hidden;">
+      <div style="overflow-x:auto;">
+        <table class="ranking-glass" id="rankingTable">
+          <thead><tr><th>#</th><th>Equipo</th><th>PPG</th><th>GF/PJ</th><th>GC/PJ</th><th>F.Ataque</th><th>F.Defensa</th><th>Índice IR</th></tr></thead>
+          <tbody id="rankingBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="detailModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalTitle">Análisis Detallado</h2>
+      <button class="close-modal" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="analysis-section">
+        <h3>Probabilidades del Encuentro</h3>
+        <div class="probabilities">
+          <div class="prob-card"><h4>Victoria Local</h4><div class="prob-percentage" id="modalProbLocal">—</div></div>
+          <div class="prob-card"><h4>Empate</h4><div class="prob-percentage" id="modalProbEmpate" style="background:linear-gradient(135deg,#f59e0b,#d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">—</div></div>
+          <div class="prob-card"><h4>Victoria Visitante</h4><div class="prob-percentage" id="modalProbVisit" style="background:linear-gradient(135deg,var(--lime-mid),var(--lime-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">—</div></div>
+        </div>
+        <div class="modal-charts">
+          <div class="modal-chart-card"><h4>Distribución de Probabilidades</h4><canvas id="modalChartDona" height="180"></canvas></div>
+          <div class="modal-chart-card"><h4>Goles Esperados (λ Poisson)</h4><canvas id="modalChartLambda" height="180"></canvas></div>
+        </div>
+      </div>
+      <div class="analysis-section"><h3>Estadísticas Comparativas</h3><div id="modalStats" class="stats-comparison"></div></div>
+      <div class="analysis-section"><h3>Factores Clave</h3><div id="modalFactores" class="history-matches"></div></div>
+      <div class="analysis-section"><h3>Últimos 5 Enfrentamientos</h3><div id="modalHistorial" class="history-matches"></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <h3>Universidad Tres Culturas</h3>
+    <p>Licenciatura en Ingeniería en Sistemas Computacionales</p>
+    <p>Cuautitlán, Estado de México — Febrero 2026</p>
+    <div class="footer-div">
+      <p><strong style="color:var(--blue)">Asesor de Tesis</strong></p>
+      <p>Ingeniero Jesús Alberto Rivero Urrutia</p>
+    </div>
+    <p style="margin-top:20px;font-size:0.8em;color:var(--text-dim);">Proyecto de Tesis: Implementación de un sistema de predicción de resultados de la Liga MX utilizando métodos matemáticos y técnicas de IA</p>
+  </div>
+</footer>
+
+
+<script src="main.js"></script>
+</body>
+</html>
