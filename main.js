@@ -138,7 +138,6 @@ async function cargarDatos() {
     buildRanking();
     // Cargar modelo NN en paralelo (no bloquea la UI)
     cargarModelo().then(() => buildMatchCards());
-    buildMatchCards(); // primera pasada con solo Poisson
 
   } catch(err) {
     console.error('Error cargando stats_equipos.json:', err);
